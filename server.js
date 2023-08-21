@@ -19,8 +19,12 @@ app.use(morgan("dev")); //give message on console about url hit..etc
 //routes
 //test route
 app.use("/api/v1/test", require("./routes/testRoutes"));
-//authController
+
+//authentication Controller
 app.use("/api/v1/auth", require("./routes/authRoutes"));
+
+//inventory Controller
+app.use("/api/v1/inventory", require("./routes/inventoryRoutes"));
 //port
 const PORT = process.env.PORT || 8085;
 
