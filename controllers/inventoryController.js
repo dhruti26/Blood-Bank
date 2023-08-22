@@ -35,5 +35,25 @@ const createInventoryController=async(req,res)=>{
         })
     }
 };
-
-module.exports={createInventoryController};
+//get all blood records
+const getInventoryController=async(req,res)=>{
+   try{
+    //based on userId which is stored using token
+    //added filters-populate and sort,sort will show according to latest record on top
+     const inventory =await inventoryModel.find({organization:req.body.userId}).populate('donor').populate('hospital').sort({createdAt : -1});
+     return res.status(201).send({
+        success:true,
+        message : "All get records successfully!",
+        inventory,
+    })
+   }catch(error){
+        console.log(error);
+        //500 - Internal Server Error
+        res.status(500).send({
+          success:false,
+          message:'Error in Get all Inventory API',
+          error
+        })
+    }
+}
+module.exports={createInventoryController,getInventoryController};
