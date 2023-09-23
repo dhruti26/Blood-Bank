@@ -1,5 +1,5 @@
 import React from 'react'
-import InputType from '../../components/shared/form/InputType'
+//import InputType from '../../components/shared/form/InputType'
 import Form from '../../components/shared/form/Form'
 
 

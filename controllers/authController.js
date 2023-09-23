@@ -9,27 +9,26 @@ const registerController = async (req, res) => {
     if (existingUser) {
       return res.status(200).send({
         success: false,
-        message: "User Already Exists",
+        message: "User Already exists",
       });
     }
     //hash password
     const salt = await bcrypt.genSalt(10);
-    const hashedPassword = await bcrypt.hash(req.body.password, salt); //hash normal password
+    const hashedPassword = await bcrypt.hash(req.body.password, salt);
     req.body.password = hashedPassword;
-    //accessing rest data
+    //rest data
     const user = new userModel(req.body);
     await user.save();
-    //201 -- indicates something has been created
-    return res.Status(201).send({
+    return res.status(201).send({
       success: true,
-      message: "User Registered Succesfully",
+      message: "User Registered Successfully",
       user,
     });
   } catch (error) {
     console.log(error);
     res.status(500).send({
       success: false,
-      message: "Error in Register API",
+      message: "Error In Register API",
       error,
     });
   }
@@ -46,7 +45,7 @@ const loginController=async(req,res)=>{
       })
     }
     //check role
-     if(user.role != req.body.role){
+     if(user.role !== req.body.role){
         //if not from mentioned options
         return res.status(500).send({
           success:false,
@@ -67,18 +66,18 @@ const loginController=async(req,res)=>{
     //200 -OK status
     return res.status(200).send({
       success:true,
-      message:'Congratulations!Login Successfull',
+      message:'Login Successful!',
       token,
       user,
-    })
+    });
   }catch(error){
     console.log(error);
     //500 - Internal Server Error
     res.status(500).send({
       success:false,
       message:'Error in Login API',
-      error
-    })
+      error,
+    });
   }
 };
 
@@ -89,14 +88,14 @@ const currentUserController=async(req,res)=>{
      return res.status(200).send({
       success:true,
       message:'User Fetched Successfully!',
-      user
+      user,
     })
   }catch(error){
     console.log(error);
     res.status(500).send({
       success:false,
       message:'Unable to get current user',
-      error
+      error,
     })
   }
 };
