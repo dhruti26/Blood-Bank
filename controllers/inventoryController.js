@@ -11,9 +11,9 @@ const createInventoryController=async(req,res)=>{
         if(!user){
              throw new Error('User Not Found')
         }
-        if(inventoryType === "in" && user.role != 'donor'){
-            throw new Error('Not a donor account')
-        }
+        // if(inventoryType === "in" && user.role != 'donor'){
+        //     throw new Error('Not a donor account')
+        // }
         if(inventoryType === "out" && user.role != 'hospital'){
             throw new Error('Not a valid receiver account')
         }
