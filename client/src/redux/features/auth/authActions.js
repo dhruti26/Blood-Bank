@@ -16,9 +16,9 @@ export const userLogin = createAsyncThunk(
         alert(data.message);
         //store token generated in local storage
         localStorage.setItem("token", data.token);
-        // window.location.replace("/");
+        window.location.replace("/");
         //using message property declared in user successful login
-        toast.success(data.message);
+        
       }
       return data;
     } catch (error) {
@@ -63,7 +63,6 @@ export const userRegister = createAsyncThunk(
               website
       });
       if (data?.success) {
-        // alert("User Registerd Successfully");
         alert("User Registered Successfully");
         window.location.replace("/login");
       }
@@ -78,22 +77,23 @@ export const userRegister = createAsyncThunk(
   }
 );
 
-// //current user
-// export const getCurrentUser = createAsyncThunk(
-//   "auth/getCurrentUser",
-//   async ({ rejectWithValue }) => {
-//     try {
-//       const res = await API.get("/auth/current-user");
-//       if (res.data) {
-//         return res?.data;
-//       }
-//     } catch (error) {
-//       console.log(error);
-//       if (error.response && error.response.data.message) {
-//         return rejectWithValue(error.response.data.message);
-//       } else {
-//         return rejectWithValue(error.message);
-//       }
-//     }
-//   }
-// );
+ //current user
+export const getCurrentUser = createAsyncThunk(
+  "auth/getCurrentUser",
+  async ({ rejectWithValue }) => {
+    try {
+      const res = await API.get("/auth/current-user");
+      if (res?.data) {
+        //res?.data means => res && res.data - if response is present then only send data
+        return res?.data;
+      }
+    } catch (error) {
+      console.log(error);
+      if (error.response && error.response.data.message) {
+        return rejectWithValue(error.response.data.message);
+      } else {
+        return rejectWithValue(error.message);
+      }
+    }
+  }
+);

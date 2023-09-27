@@ -30,7 +30,6 @@ export const handleRegister = (
 ) => {
   e.preventDefault();
   try {
-  
     store.dispatch(
       userRegister({
         name,

@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import {userLogin, userRegister} from "./authActions";
+import {getCurrentUser, userLogin, userRegister} from "./authActions";
 
 //authSlice is our reducer function
 const token = localStorage.getItem("token")
@@ -53,18 +53,18 @@ const authSlice = createSlice({
 
 
     // CURRENT user
-    // builder.addCase(getCurrentUser.pending, (state) => {
-    //   state.loading = true;
-    //   state.error = null;
-    // });
-    // builder.addCase(getCurrentUser.fulfilled, (state, { payload }) => {
-    //   state.loading = false;
-    //   state.user = payload.user;
-    // });
-    // builder.addCase(getCurrentUser.rejected, (state, { payload }) => {
-    //   state.loading = false;
-    //   state.error = payload;
-    // });
+    builder.addCase(getCurrentUser.pending, (state) => {
+      state.loading = true;
+      state.error = null;
+    });
+    builder.addCase(getCurrentUser.fulfilled, (state, { payload }) => {
+      state.loading = false;
+      state.user = payload.user;
+    });
+    builder.addCase(getCurrentUser.rejected, (state, { payload }) => {
+      state.loading = false;
+      state.error = payload;
+    });
   },
 });
 
