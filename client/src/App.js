@@ -6,6 +6,7 @@ import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import ProtectedRoute from './components/Routes/ProtectedRoute';
 import PublicRoute from './components/Routes/PublicRoute';
+import Donor from './pages/Dashboard/Donor';
 
 //Routes act like container and route is used to create single container
 function App() {
@@ -18,6 +19,13 @@ function App() {
           element={
             <ProtectedRoute>
               <HomePage/>
+          </ProtectedRoute>
+          } />
+          <Route
+         path="/donor"
+          element={
+            <ProtectedRoute>
+              <Donor/>
           </ProtectedRoute>
           } />
         <Route path="/login" element={
