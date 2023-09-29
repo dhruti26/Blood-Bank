@@ -5,7 +5,7 @@ import { useSelector } from "react-redux";
 import "../../../styles/Layout.css";
 
 const Sidebar = () => {
-  //GET USER STATE
+  //GET USER STATE-using auth reducer function
   const { user } = useSelector((state) => state.auth);
 
   const location = useLocation();

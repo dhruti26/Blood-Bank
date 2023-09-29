@@ -7,6 +7,8 @@ import 'react-toastify/dist/ReactToastify.css';
 import ProtectedRoute from './components/Routes/ProtectedRoute';
 import PublicRoute from './components/Routes/PublicRoute';
 import Donor from './pages/Dashboard/Donor';
+import Hospitals from './pages/Dashboard/hospitals';
+import OrganizationPage from './pages/Dashboard/organizationPage';
 
 //Routes act like container and route is used to create single container
 function App() {
@@ -21,6 +23,7 @@ function App() {
               <HomePage/>
           </ProtectedRoute>
           } />
+
           <Route
          path="/donor"
           element={
@@ -28,6 +31,23 @@ function App() {
               <Donor/>
           </ProtectedRoute>
           } />
+
+        <Route
+         path="/hospital"
+          element={
+            <ProtectedRoute>
+              <Hospitals/>
+          </ProtectedRoute>
+          } />
+
+        <Route
+         path="/organization"
+          element={
+            <ProtectedRoute>
+              <OrganizationPage/>
+          </ProtectedRoute>
+          } />
+
         <Route path="/login" element={
           <PublicRoute>
              <Login />

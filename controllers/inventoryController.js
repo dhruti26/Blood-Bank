@@ -145,4 +145,87 @@ const getDonorsController = async (req, res) => {
       });
     }
   };
-module.exports={createInventoryController,getInventoryController,getDonorsController};
+
+  const getHospitalController = async (req, res) => {
+    try {
+      const organization = req.body.userId;
+      //GET HOSPITAL ID-the hospital which are linked with this organization id will be displayed
+      const hospitalId = await inventoryModel.distinct("hospital", {
+        organization,
+      });
+      //FIND HOSPITAL -find _id same as hospitalId -indicates hospital record
+      const hospitals = await userModel.find({
+        _id: { $in: hospitalId },
+      });
+      return res.status(200).send({
+        success: true,
+        message: "Hospitals Data Fetched Successfully",
+        hospitals,
+      });
+    } catch (error) {
+      console.log(error);
+      return res.status(500).send({
+        success: false,
+        message: "Error In get Hospital API",
+        error,
+      });
+    }
+  };
+
+  // get organization profile
+const getOrganizationController = async (req, res) => {
+  try {
+    //if user is donor then only show organization list
+    const donor = req.body.userId;
+    const orgId = await inventoryModel.distinct("organization", { donor });
+    //find _id same as org id
+    const organizations = await userModel.find({
+      _id: { $in: orgId },
+    });
+    return res.status(200).send({
+      success: true,
+      message: "Organization Data Fetched Successfully",
+      organizations,
+    });
+  } catch (error) {
+    console.log(error);
+    return res.status(500).send({
+      success: false,
+      message: "Error In ORG API",
+      error,
+    });
+  }
+};
+
+//organization for hospital controller 
+// GET ORG for Hospital
+const getOrganizationForHospitalController = async (req, res) => {
+  try {
+    const hospital = req.body.userId;
+    const orgId = await inventoryModel.distinct("organization", { hospital });
+    //find org
+    const organizations = await userModel.find({
+      _id: { $in: orgId },
+    });
+    return res.status(200).send({
+      success: true,
+      message: "Hospital Org Data Fetched Successfully",
+      organizations,
+    });
+  } catch (error) {
+    console.log(error);
+    return res.status(500).send({
+      success: false,
+      message: "Error In Hospital ORG API",
+      error,
+    });
+  }
+};
+
+module.exports={
+  createInventoryController,
+  getInventoryController,
+  getDonorsController,
+  getHospitalController,
+  getOrganizationController,
+  getOrganizationForHospitalController};
