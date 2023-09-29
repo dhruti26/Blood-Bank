@@ -9,6 +9,8 @@ import PublicRoute from './components/Routes/PublicRoute';
 import Donor from './pages/Dashboard/Donor';
 import Hospitals from './pages/Dashboard/hospitals';
 import OrganizationPage from './pages/Dashboard/organizationPage';
+import Consumer from './pages/Dashboard/Consumer';
+import Donation from './pages/Dashboard/Donation';
 
 //Routes act like container and route is used to create single container
 function App() {
@@ -45,6 +47,22 @@ function App() {
           element={
             <ProtectedRoute>
               <OrganizationPage/>
+          </ProtectedRoute>
+          } />
+         
+         <Route
+         path="/consumer"
+          element={
+            <ProtectedRoute>
+              <Consumer/>
+          </ProtectedRoute>
+          } />
+         
+         <Route
+         path="/donation"
+          element={
+            <ProtectedRoute>
+              <Donation/>
           </ProtectedRoute>
           } />
 

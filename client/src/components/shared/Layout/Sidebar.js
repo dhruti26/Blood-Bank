@@ -85,7 +85,7 @@ const Sidebar = () => {
                 location.pathname === "/consumer" && "active"
               }`}
             >
-              <i className="fa-sharp fa-solid fa-building-ngo"></i>
+              <i className="fa-solid fa-person"></i>
               <Link to="/consumer">Consumer</Link>
             </div>
           )}
@@ -95,7 +95,7 @@ const Sidebar = () => {
                 location.pathname === "/donation" && "active"
               }`}
             >
-              <i className="fa-sharp fa-solid fa-building-ngo"></i>
+              <i className="fa-solid fa-book-medical"></i>
               <Link to="/donation">Donation</Link>
             </div>
           )}

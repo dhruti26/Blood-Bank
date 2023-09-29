@@ -222,10 +222,36 @@ const getOrganizationForHospitalController = async (req, res) => {
   }
 };
 
+// get consumer records in hospital page
+const getInventoryHospitalController = async (req, res) => {
+  try {
+    //we get filters as object from frontend  
+    const inventory = await inventoryModel
+      .find(req.body.filters)
+      .populate("donor")
+      .populate("hospital")
+      .populate("organization")
+      .sort({ createdAt: -1 });
+    return res.status(200).send({
+      success: true,
+      message: "get consumer records successfully",
+      inventory,
+    });
+  } catch (error) {
+    console.log(error);
+    return res.status(500).send({
+      success: false,
+      message: "Error In Get consumer Inventory",
+      error,
+    });
+  }
+};
+
 module.exports={
   createInventoryController,
   getInventoryController,
   getDonorsController,
   getHospitalController,
   getOrganizationController,
-  getOrganizationForHospitalController};
+  getOrganizationForHospitalController,
+  getInventoryHospitalController};
