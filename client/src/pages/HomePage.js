@@ -44,8 +44,7 @@ const HomePage = () => {
               data-bs-target="#staticBackdrop"
               style={{ cursor: "pointer" }}
             >
-              <i className="fa-solid fa-plus text-success py-4"></i>
-              Add Inventory
+              <i className="fa-solid fa-plus text-success py-4"></i>Add Inventory
             </h4>
             <table className="table ">
               <thead>

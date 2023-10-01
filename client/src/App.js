@@ -11,6 +11,11 @@ import Hospitals from './pages/Dashboard/hospitals';
 import OrganizationPage from './pages/Dashboard/organizationPage';
 import Consumer from './pages/Dashboard/Consumer';
 import Donation from './pages/Dashboard/Donation';
+import Analytics from './pages/Dashboard/Analytics';
+import AdminHome from './pages/Admin/AdminHome';
+import HospitalList from './pages/Admin/HospitalList';
+import DonorList from './pages/Admin/Donorlist';
+import OrgList from './pages/Admin/OrgList';
 
 //Routes act like container and route is used to create single container
 function App() {
@@ -18,13 +23,38 @@ function App() {
     <>
       <ToastContainer/>
       <Routes>
-        <Route
-         path="/"
+      <Route
+          path="/admin"
           element={
             <ProtectedRoute>
-              <HomePage/>
-          </ProtectedRoute>
-          } />
+              <AdminHome />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/donor-list"
+          element={
+            <ProtectedRoute>
+              <DonorList />
+            </ProtectedRoute>
+          }
+        />
+         <Route
+          path="/hospital-list"
+          element={
+            <ProtectedRoute>
+              <HospitalList />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/org-list"
+          element={
+            <ProtectedRoute>
+              <OrgList />
+            </ProtectedRoute>
+          }
+        />
 
           <Route
          path="/donor"
@@ -63,6 +93,22 @@ function App() {
           element={
             <ProtectedRoute>
               <Donation/>
+          </ProtectedRoute>
+          } />
+         
+         <Route
+         path="/analytics"
+          element={
+            <ProtectedRoute>
+              <Analytics/>
+          </ProtectedRoute>
+          } />
+
+        <Route
+         path="/"
+          element={
+            <ProtectedRoute>
+              <HomePage/>
           </ProtectedRoute>
           } />
 

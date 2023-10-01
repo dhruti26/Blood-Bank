@@ -25,6 +25,10 @@ app.use("/api/v1/auth", require("./routes/authRoutes"));
 
 //inventory Controller
 app.use("/api/v1/inventory", require("./routes/inventoryRoutes"));
+
+//analytics Controller
+app.use("/api/v1/analytics", require("./routes/analyticsRoutes"));
+
 //port
 const PORT = process.env.PORT || 8085;
 
