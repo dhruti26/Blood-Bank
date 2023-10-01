@@ -3,13 +3,15 @@ import Layout from "./../../components/shared/Layout/Layout";
 import moment from "moment";
 import API from "../../services/API";
 
+//same as Donor page
 const DonorList = () => {
   const [data, setData] = useState([]);
   //find donar records
   const getDonors = async () => {
     try {
       const { data } = await API.get("/admin/donor-list");
-      //   console.log(data);
+      
+      //donorData is returned by controller in adminController
       if (data?.success) {
         setData(data?.donarData);
       }
@@ -23,14 +25,15 @@ const DonorList = () => {
   }, []);
 
   //DELETE FUNCTION
-  const handelDelete = async (id) => {
+  const handleDelete = async (id) => {
     try {
       let answer = window.prompt(
         "Are You Sure Want To Delete This Donor",
         "Sure"
       );
+      //if no response cancel delete request
       if (!answer) return;
-      const { data } = await API.delete(`/admin/delete-donar/${id}`);
+      const { data } = await API.delete(`/admin/delete-donor/${id}`);
       alert(data?.message);
       window.location.reload();
     } catch (error) {
@@ -60,7 +63,7 @@ const DonorList = () => {
               <td>
                 <button
                   className="btn btn-danger"
-                  onClick={() => handelDelete(record._id)}
+                  onClick={() => handleDelete(record._id)}
                 >
                   Delete
                 </button>
