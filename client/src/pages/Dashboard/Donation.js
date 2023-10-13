@@ -14,7 +14,7 @@ const Donation = () => {
       const { data } = await API.post("/inventory/get-inventory-hospital", {
         filters: {
           inventoryType: "in",
-          donar: user?._id, //if login id is donor id show donation page
+          donor: user?._id, //if login id is donor id show donation page
         },
       });
       if (data?.success) {

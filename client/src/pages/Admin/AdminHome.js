@@ -11,35 +11,12 @@ const AdminHome = () => {
           <h1>
             Welcome Admin <i className="text-success">{user?.name}</i>
           </h1>
-          <h3>Manage Blood Bank App </h3>
+          <h3> Blood Bank App </h3>
           <hr />
           <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad
-            explicabo animi blanditiis incidunt dicta quia, quibusdam facere
-            corporis! Dolores, reprehenderit cum sed repellat laudantium
-            architecto natus est nostrum accusamus, odio aspernatur minima
-            fugiat quam molestiae nisi. Temporibus impedit dolorem quia.
-            Distinctio modi non excepturi illo odio voluptatum quae nostrum a
-            temporibus sequi! Explicabo, quasi consequatur ad qui quos labore
-            distinctio voluptates alias nostrum ab dicta aspernatur molestias
-            adipisci quibusdam error ipsa. Totam, tenetur dolores eaque tempora
-            officiis deserunt assumenda? Rerum nemo est nihil laudantium
-            necessitatibus. Possimus, voluptatem voluptates blanditiis quas
-            aspernatur, quam, quaerat minus maiores ipsam sint perferendis
-            dolor. Dignissimos voluptatem doloribus sint in quis omnis, atque
-            neque praesentium voluptatum suscipit. Quas esse, accusantium maxime
-            obcaecati iure officiis aperiam minus alias quod cum quos qui
-            voluptatibus, numquam, ad id dolore odit! Minima laudantium sunt,
-            explicabo nesciunt quos voluptatibus qui libero eligendi praesentium
-            debitis obcaecati similique assumenda nobis labore totam dolore
-            perferendis adipisci fugiat quibusdam tempore doloremque voluptatum
-            accusantium. Accusamus, incidunt sequi. Esse sunt officia fuga,
-            officiis saepe tempora repellat suscipit aliquid cupiditate
-            perferendis, asperiores architecto molestiae rem iste eaque
-            molestias reiciendis. Laborum modi asperiores, reprehenderit
-            assumenda numquam, vitae exercitationem illum nesciunt, dolorum
-            deleniti accusamus consequatur id. Necessitatibus dolore ad fugit?
+          Every day, countless individuals face critical medical situations, accidents, and life-threatening illnesses. The gift of life lies within all of us, and by donating blood, you hold the power to transform these challenging moments into stories of triumph and hope. The Blood Bank App is more than just a platform; it's a lifeline, bringing together compassionate souls like you who understand that a simple act of giving can mean the world to someone in need. Our community is bound by a shared belief that we are stronger when we stand together, and together, we can overcome any obstacle. Join our community today, and let's make a tangible difference, one donation at a time. Your generosity can bridge the gap between despair and recovery, between fear and comfort. It's a privilege to be part of this incredible journey, and we welcome you with open arms to be a part of something greater than ourselves.
           </p>
+          <p> Join us in our mission to connect donors with those in need, and together, we can make a positive impact on the world.</p>
         </div>
       </div>
     </Layout>
